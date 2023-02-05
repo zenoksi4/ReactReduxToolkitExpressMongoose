@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const { getItems } = require('../controllers/itemsController')
 const path = require('path');
 
 
 // route GET /api/items
 // get all items
-router.get('/', (req, res) => {
-    res.send('Get all items')
-})
+router.get('/', getItems)
 
 // route GET /api/items/:id
 // get item by id

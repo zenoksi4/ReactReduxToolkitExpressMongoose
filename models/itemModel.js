@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const planeSchema = mongoose.Schema({
     name: {
-        typeo: String,
+        type: String,
         required: true
     },
     price: {

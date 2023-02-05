@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 // images path
 app.use("/static", express.static(__dirname + "/assets"))
 
-app.use('/api/items', require('./routes/items'))
+app.use('/api/items', require('./routes/itemsRoute'))
 
 mongoose.connect("mongodb://localhost:27017")
     .then(() => {
