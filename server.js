@@ -9,6 +9,8 @@ const port = process.env.PORT || 5000;
 app.use(express.json())
 // application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+
+
 // images path
 app.use("/static", express.static(__dirname + "/assets"))
 

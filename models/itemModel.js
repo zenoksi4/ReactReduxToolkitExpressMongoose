@@ -9,7 +9,7 @@ const planeSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    steamUrl: {
+    exterior: {
         type: String,
         required: true
     },
