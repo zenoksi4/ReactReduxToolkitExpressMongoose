@@ -54,7 +54,18 @@ const createItem = async (req, res) => {
     }
 };
 
+const getItemById = async (req, res) => {
+    try {
+        const item = await Item.find({ _id: req.params.id});
+
+        res.status(200).json(item)
+    } catch(error) {
+        res.status(400).json({ message: `Failed to get item by id, please try again. error: ${error} `});
+    }
+}
+
 module.exports = {
     getItems,
-    createItem
+    createItem,
+    getItemById
 }
