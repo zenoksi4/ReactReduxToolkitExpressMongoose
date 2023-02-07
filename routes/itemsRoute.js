@@ -26,7 +26,7 @@ router.get('/:id', getItemById)
 
 // route POST /api/items
 // create item
-router.post('/', createItem, upload.single('itemImage'), createItem)
+router.post('/', upload.single('itemImage'), createItem)
 
 
 module.exports = router;
