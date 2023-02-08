@@ -3,9 +3,6 @@ import HomePage from "./components/HomePage";
 import React from "react";
 import { paths } from "./paths";
 
-
-
-
 function App() {
   return (
     <BrowserRouter>
