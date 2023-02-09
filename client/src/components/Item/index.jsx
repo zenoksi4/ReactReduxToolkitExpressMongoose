@@ -2,7 +2,7 @@ import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
 import { paths } from '../../paths'
 
- const Item = ({
+const Item = ({
     name = '',
     price = 0,
     itemImage = '',

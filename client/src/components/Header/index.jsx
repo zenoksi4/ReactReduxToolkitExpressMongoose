@@ -2,7 +2,7 @@ import ContentWrapper from '../ContentWrapper';
 import styles from './styles.module.css'
 import WaveImage from './wave.svg'
 
- const Header = () => {
+const Header = () => {
     return (
         <div className={ styles.header }>
             <ContentWrapper className={ styles.content }>
