@@ -43,7 +43,7 @@
 @keyframes fadeInAnimation {
     from {
         opacity: 0;
-        transform: rotateY(20px);
+        transform: translateY(20px);
     }
 
     to {
@@ -55,5 +55,5 @@
 .wave {
     position: absolute;
     width: 100%;
-    bottom: -200px;
+    bottom: -200px;     
 }

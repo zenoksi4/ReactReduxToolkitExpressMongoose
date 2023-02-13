@@ -6,8 +6,15 @@ const getItems = async () => {
     return items.data;
 }
 
+const getItem = async (id) => {
+    const item = await axios.get(`/api/items/${id}`);
+
+    return item.data;
+}
+
 const itemsService = {
-    getItems
+    getItems,
+    getItem
 }
 
 export default itemsService;
