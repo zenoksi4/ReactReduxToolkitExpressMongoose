@@ -26,11 +26,11 @@ const createItem = async (req, res) => {
     }
 
     if (!req.body.category) {
-        errors.category = {message: `${req.body.name}`}
+        errors.category = {message: "Please enter a category"}
     }
 
     if (!req.file) {
-        errors.file = {message: "Please enter a photo"}
+        errors.itemImage = {message: "Please enter a photo"}
     }
 
     if (Object.keys(errors).length > 0) {

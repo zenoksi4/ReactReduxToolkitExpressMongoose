@@ -1,5 +1,6 @@
 export const paths = {
     home: '/',
     item: '/item',
-    createItem: ''
+    createItem: '/create-item',
+    order: '/order'
 }

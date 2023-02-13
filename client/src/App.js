@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./components/HomePage";
 import React from "react";
 import { paths } from "./paths";
-import ItemPage from "./components/ItemPage";
+
+import HomePage from "./components/pages/HomePage";
+import ItemPage from "./components/pages/ItemPage";
+import CreateItemPage from "./components/pages/CreateItemPage";
 
 function App() {
   return (
@@ -11,6 +13,9 @@ function App() {
 
         <Route path={ paths.home } element={ <HomePage /> }/>
         <Route path={ `${paths.item}/:id` } element={ <ItemPage /> }/>
+        <Route path={ `${paths.createItem}` } element={ <CreateItemPage /> }/>
+        <Route path={ `${paths.order}` } element={ <></> }/>
+
       </Routes>
     </BrowserRouter>
   );

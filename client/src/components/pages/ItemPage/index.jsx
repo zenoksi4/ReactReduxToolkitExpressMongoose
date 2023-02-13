@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getItem } from "../../store/item/itemSlice";
-import Button from "../Button";
-import ContentWrapper from "../ContentWrapper";
-import Header from "../Header";
-import Loader from "../Loader";
+import { getItem } from "../../../store/item/itemSlice";
+
+import Button from "../../Button";
+import ContentWrapper from "../../ContentWrapper";
+import Header from "../../Header";
+import Loader from "../../Loader";
+
 import styles from './styles.module.css'
 
 const ItemPage = () => {

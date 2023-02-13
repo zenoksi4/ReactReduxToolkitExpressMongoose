@@ -1,6 +1,7 @@
-import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
 import { paths } from '../../paths'
+
+import styles from './styles.module.css'
 
 const Item = ({
     name = '',

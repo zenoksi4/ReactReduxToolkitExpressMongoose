@@ -2,9 +2,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import itemsService from "../services/itemsService";
 
-export const getItem = createAsyncThunk('GET_ITEMS', async (id, thunkAPI) => {
+export const getItem = createAsyncThunk('GET_ITEM', async (id, thunkAPI) => {
     try {
         return await itemsService.getItem(id)
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data)
+    }
+});
+
+export const createItem = createAsyncThunk('CREATE_ITEM', async (itemData, thunkAPI) => {
+    try {   
+        return await itemsService.createItem(itemData)
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data)
     }
@@ -17,7 +25,14 @@ const itemSlice = createSlice({
         item: null,
         isError: false,
         isLoading: false,
-        message: ''
+        message: '',
+        errors: null,
+    },
+
+    reducers: {
+        resetPlaneErrors: (state) => {
+            state.errors = null
+        }
     },
 
     extraReducers: (builder) => {
@@ -34,7 +49,23 @@ const itemSlice = createSlice({
             state.message = action.payload.message;
             state.item = null;
         });
+
+        builder.addCase(createItem.pending, (state) => {
+            state.isLoading = true;
+            state.errors = null;
+        });
+        builder.addCase(createItem.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.errors = null;
+        });
+        builder.addCase(createItem.rejected, (state, action) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.errors = action.payload;
+        });
     }
 });
+
+export const { resetPlaneErrors } = itemSlice.actions;
 
 export default itemSlice.reducer;

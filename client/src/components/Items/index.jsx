@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { useSortItems } from "../../hooks/useSortItems";
 import { paths } from "../../paths";
 import { getItems } from "../../store/items/itemsSlice";
+
 import Button from "../Button";
 import ContentWrapper from "../ContentWrapper";
 import Item from "../Item";
 import Loader from "../Loader";
+
 import styles from './styles.module.css'
 
 const Items = () => {
@@ -27,18 +29,21 @@ const Items = () => {
         <div>
             <div className={ styles.sort }>
                 <ContentWrapper className={ styles.itemsHeader }>
+
                     <Button 
                     className={ styles.sortBtn }
                     onClick={() => seIsDescSort(!isDescSort)}
                     >
                         Sort by price: { `${isDescSort ? 'High to Low' : 'Low to High'}` }
                     </Button>
+
                     <Link 
                         to={paths.createItem } 
                         className={ styles.createItemBtn }
                     >
                         Add item
                     </Link>
+
                 </ContentWrapper>
             </div>
 

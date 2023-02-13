@@ -1,6 +1,7 @@
 import ContentWrapper from '../ContentWrapper';
-import styles from './styles.module.css'
 import WaveImage from './wave.svg'
+
+import styles from './styles.module.css'
 
 const Header = () => {
     return (

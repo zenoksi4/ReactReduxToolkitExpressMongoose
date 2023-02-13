@@ -1,5 +1,6 @@
-import Header from "../Header";
-import Items from "../Items";
+import Items from "../../Items";
+import Header from "../../Header";
+
 
 
 const HomePage = () => {
