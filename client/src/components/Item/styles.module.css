@@ -12,6 +12,10 @@
     background-color: #3e3e6e;
 }
 
+.item:active {
+    background-color: #45456e;
+}
+
 
 .image {
     aspect-ratio: 3 / 3;
@@ -59,4 +63,29 @@
     font-size: 20px;
     font-weight: bold;
     color: #2FB5FC;
+}
+
+
+.item {
+    transform: scale(0);
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-name: UnwrapAnimation;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    white-space: pre-line;
+
+}
+
+
+@keyframes UnwrapAnimation {
+    from {
+        transform: scale(0);
+
+    }
+
+    to {
+        transform: scale(1);
+
+    }
 }

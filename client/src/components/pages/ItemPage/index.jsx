@@ -24,7 +24,6 @@ const ItemPage = () => {
 
     return item && (
         <>
-            <Header />
             <ContentWrapper className={ styles.nav }>
                 <Button 
                         onClick={() => navigate(-1)}

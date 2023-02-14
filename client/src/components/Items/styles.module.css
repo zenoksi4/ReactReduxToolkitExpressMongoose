@@ -13,7 +13,6 @@
 
 .sort {
     height: 80px;
-    background-color: #442D85;
     width: 100%;
     margin-bottom: 50px;
     display: flex;
@@ -27,4 +26,40 @@
     border-radius: 20px;
     color: #000000;
     padding: 8px 12px   ;
+}
+
+
+.createItemBtn:hover {
+    background: rgba(0, 0, 0, 0);
+    color: #ffffff;
+}
+
+.createItemBtn:active {
+    background: rgba(0, 0, 0, 0);
+    color: #ffffff8d;
+}
+
+
+.itemsHeader {
+    transform: translateX(-20px);
+    opacity: 0;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-name: fadeInAnimationDown;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    white-space: pre-line;
+}
+
+
+@keyframes fadeInAnimationDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

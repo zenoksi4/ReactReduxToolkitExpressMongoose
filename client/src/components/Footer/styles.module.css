@@ -1,0 +1,27 @@
+.footer {
+    justify-content: center;
+    margin-top: auto;
+}
+
+.gitIcon {
+    font-size: 40px;
+    padding-right: 10px;
+
+}
+
+.gitLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.gitLink:hover {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.gitLink:active {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.4);
+}
