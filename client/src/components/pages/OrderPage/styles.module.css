@@ -1,0 +1,15 @@
+.order {
+    display: flex;
+    flex-direction: column;
+    min-width: 50vh;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    text-align: center;
+
+}
+
+.button {
+    margin-top: 50px;
+}
+

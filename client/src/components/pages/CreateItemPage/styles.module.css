@@ -4,6 +4,7 @@
     min-height: 50vh;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 .form {
@@ -27,5 +28,9 @@
 
 .backButtonContainer{
     width: 50vh;
-    margin-bottom: 20px;
+
+}
+
+.buttons {
+    align-items: center;
 }

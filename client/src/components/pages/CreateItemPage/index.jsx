@@ -1,15 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback, useState } from 'react';
-
+import { createItem } from '../../../store/item/itemSlice';
+import { paths } from '../../../paths';
 
 import Button from '../../Button';
 import ContentWrapper from '../../ContentWrapper';
 import Input from '../../Input';
 
 import styles from './styles.module.css'
-import { createItem } from '../../../store/item/itemSlice';
-import { paths } from '../../../paths';
+
 
 
 const CreateItemPage = () => {
@@ -41,13 +41,7 @@ const CreateItemPage = () => {
 
     return (
         <ContentWrapper className={ styles.createItem }>
-            <Button 
-                onClick={() => navigate(-1)}
-                isBackButton={ true }
-                containerClassName={ styles.backButtonContainer }
-            >
-                ←Back
-            </Button>
+
 
             <form className={ styles.form }>
                 <h1 className={ styles.title }>Create Item</h1>
@@ -88,12 +82,22 @@ const CreateItemPage = () => {
                     onChange={(e) => setItemImage(e.target.files[0])}
                 />
 
-                <Button  
+            <ContentWrapper className={ styles.buttons }>
+            <Button 
+                onClick={() => navigate(-1)}
+                isBackButton={ true }
+                containerClassName={ styles.backButtonContainer }
+            >
+                ←Back
+            </Button>
+
+            <Button  
                     containerClassName={ styles.buttonContainer }
                     onClick={ handleCreateItem }
-                >
+            >
                     Create
-                </Button>
+            </Button>
+            </ContentWrapper>
             </form> 
         </ContentWrapper>
     )

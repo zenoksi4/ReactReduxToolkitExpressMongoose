@@ -36,7 +36,7 @@ const ItemPage = () => {
 
                 <Button
                         containerClassName={ styles.buyBtnContainer }
-                        onCLick={ () => navigate('/order')}
+                        onClick={ () => navigate('/order') }
                         className={ styles.order }
                 >
                         Place an order
