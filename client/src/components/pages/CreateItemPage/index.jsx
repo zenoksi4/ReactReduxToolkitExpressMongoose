@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { createItem } from '../../../store/item/itemSlice';
 import { paths } from '../../../paths';
 
@@ -39,12 +39,20 @@ const CreateItemPage = () => {
         })
     }, [name, price, category, exterior, itemImage])
 
+    const titleRef = useRef(null);
+
+    useEffect(() => {
+        if (titleRef.current) {
+          titleRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, []);
+
     return (
         <ContentWrapper className={ styles.createItem }>
 
 
             <form className={ styles.form }>
-                <h1 className={ styles.title }>Create Item</h1>
+                <h1 className={ styles.title } ref={titleRef}>Create Item</h1>
 
                 <Input 
                     name='name'

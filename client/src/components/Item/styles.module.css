@@ -68,8 +68,8 @@
 
 .item {
     transform: scale(0);
-    animation-duration: 1s;
-    animation-delay: 0.5s;
+    animation-duration: 0.3s;
+    animation-delay: 0.3s;
     animation-name: UnwrapAnimation;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;

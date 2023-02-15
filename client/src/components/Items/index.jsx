@@ -21,6 +21,7 @@ const Items = () => {
         dispatch(getItems())
     }, [dispatch]);
 
+
     if (isLoading) {
         return <Loader />
     }   

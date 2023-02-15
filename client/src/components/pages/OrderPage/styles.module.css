@@ -13,3 +13,50 @@
     margin-top: 50px;
 }
 
+
+.title {
+    transform: translateY(-20px);
+    opacity: 0;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-name: fadeInAnimationDown;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    white-space: pre-line;
+}
+
+.button {
+    transform: translateY(20px);
+    opacity: 0;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-name: fadeInAnimationUp;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    white-space: pre-line;
+}
+
+
+@keyframes fadeInAnimationDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInAnimationUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
