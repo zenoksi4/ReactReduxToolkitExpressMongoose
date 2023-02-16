@@ -5,16 +5,29 @@ const Button = ({
     className = '',
     onClick = () => null,
     children = '',
-    isBackButton = false
+    isBackButton = false,
+    typeSubmit = false
 }) => {
     return (
         <div className={ containerClassName }>
-            <span 
-            className={ `${isBackButton ? styles.backButton : styles.button} ${className}` }
-            onClick={ onClick }
-            >
-                { children }
-            </span>
+            {typeSubmit ?
+                <button 
+                className={ `${isBackButton ? styles.backButton : styles.button} ${className}` }
+                onClick={ onClick }
+                >
+
+                    { children }
+                </button>
+                :
+                <span 
+                className={ `${isBackButton ? styles.backButton : styles.button} ${className}` }
+                onClick={ onClick }
+                >
+    
+                    { children }
+                </span>
+            }
+
         </div>
     )
 }

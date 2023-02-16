@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useSortItems } from "../../hooks/useSortItems";
@@ -16,6 +16,7 @@ const Items = () => {
     const dispatch = useDispatch();
     const { items, isLoading } = useSelector((state) => state.items)
     const { isDescSort, seIsDescSort, sortedItems } = useSortItems(items || [])
+
 
     useEffect(() => {
         dispatch(getItems())
@@ -39,7 +40,7 @@ const Items = () => {
                     </Button>
 
                     <Link 
-                        to={paths.createItem } 
+                        to={ paths.createItem } 
                         className={ styles.createItemBtn }
                     >
                         Add item

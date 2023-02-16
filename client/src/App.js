@@ -9,6 +9,7 @@ import OrderPage from "./components/pages/OrderPage";
 import Footer from "./components/Footer";
 import PageWrapper from "./components/PageWrapper";
 import Header from "./components/Header";
+import LoginAdmin from "./components/pages/LoginAdmin";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path={ `${paths.item}/:id` } element={ <ItemPage /> }/>
         <Route path={ `${paths.createItem}` } element={ <CreateItemPage /> }/>
         <Route path={ `${paths.order}` } element={ <OrderPage /> }/>
+        <Route path={ `${paths.loginAdmin}` } element={ <LoginAdmin />}/>
 
       </Routes>
     </BrowserRouter>

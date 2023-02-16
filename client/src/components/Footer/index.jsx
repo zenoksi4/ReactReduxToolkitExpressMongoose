@@ -6,10 +6,14 @@ import { AiFillGithub } from "react-icons/ai";
 const Footer = () => {
     return (
             <ContentWrapper className={ styles.footer }>
-                <div className={ styles.gitLink }>
+                <a 
+                className={ styles.gitLink } 
+                href='https://github.com/zenoksi4/ReactReduxToolkitExpressMongooseStore'
+                target={'_blank'}
+                >
                     <AiFillGithub className={ styles.gitIcon }/>
-                    <a>Project on GitHub</a> 
-                </div>
+                    <p>Project on GitHub</p> 
+                </a>
             </ContentWrapper>
     )
 }

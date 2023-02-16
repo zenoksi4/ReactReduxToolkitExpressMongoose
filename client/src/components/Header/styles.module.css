@@ -104,3 +104,11 @@
     50% {transform: translateX(-25%);}
     100% {transform: translateX(-50%);}
 }
+
+.logOut {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 10px;
+    padding-right: 40px;
+}

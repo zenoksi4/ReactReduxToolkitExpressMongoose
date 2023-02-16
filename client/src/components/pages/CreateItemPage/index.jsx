@@ -15,6 +15,13 @@ import styles from './styles.module.css'
 const CreateItemPage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    
+    useEffect(() => {
+      const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+      if(!isLoggedIn) {
+        navigate(`${paths.loginAdmin}`, { replace: true });
+      }
+    }, []);
 
     const { errors } = useSelector(state => state.item);
 
