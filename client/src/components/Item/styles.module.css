@@ -6,6 +6,8 @@
     margin: 10px;
     background-color: #2e2e5e;
     border-radius: 3%;
+
+
 }
 
 .item:hover {
@@ -22,6 +24,8 @@
     object-fit: cover;
     border-radius: 20px;
     transform: scale(1);
+    overflow: hidden;
+
 }
 
 .category {
@@ -57,6 +61,9 @@
 
 .title {
     font-size: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20vh;
 }
 
 .price {

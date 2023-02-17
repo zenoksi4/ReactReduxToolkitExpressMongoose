@@ -51,6 +51,8 @@
 .error{
     color: #FFBAB3;
     font-size: 15px;
+    margin-top: -20px;
+    padding-bottom: 20px;
 }
 
 

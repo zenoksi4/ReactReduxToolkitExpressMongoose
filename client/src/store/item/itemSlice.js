@@ -54,7 +54,7 @@ const itemSlice = createSlice({
             state.isLoading = true;
             state.errors = null;
         });
-        builder.addCase(createItem.fulfilled, (state, action) => {
+        builder.addCase(createItem.fulfilled, (state) => {
             state.isLoading = false;
             state.errors = null;
         });

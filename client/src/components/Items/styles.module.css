@@ -9,15 +9,37 @@
 .itemsHeader {
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .sort {
     height: 80px;
-    width: 100%;
-    margin-bottom: 50px;
+
+
     display: flex;
     align-items: center;
 }
+
+.category {
+    margin-left: 50px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2FB5FC;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.category:hover {
+    opacity: 0.9;
+}
+
+.category:active {
+    opacity: 0.6;
+}
+
 
 .createItemBtn {
     background: linear-gradient(180deg, #ffffff 0%, #D9DFFF 100%);

@@ -1,29 +1,38 @@
 import { useState, useMemo } from "react";
 
 export const useSortItems = (items = []) => {
-    const [isDescSort, seIsDescSort] = useState(false);
+    const [isPriceSort, setIsPriceSort] = useState(false);
+    const [categorySort, setCategorySort] = useState("");
 
     const sortedItems = useMemo(() => {
         const sortableItems = [...items];
 
-        sortableItems.sort((first, second) => {
-            if (+first.price < +second.price) {
-                return isDescSort ? 1 : -1;
-            }
+        const filteredItems = sortableItems.filter(
+            (item) => categorySort === "" || item.category === categorySort
+            
+          );
 
-            if (+first.price > +second.price) {
-                return isDescSort ? -1 : 1;
-            }
+        filteredItems.sort((first, second) => {
 
-            return 0
+        if (+first.price < +second.price) {
+            return isPriceSort ? 1 : -1;
+        }
+
+        if (+first.price > +second.price) {
+            return isPriceSort ? -1 : 1;
+        }
+
+        return 0
         });
 
-        return sortableItems;
-    }, [isDescSort, items]);
+        return filteredItems;
+    }, [isPriceSort, categorySort, items]);
 
     return {
-        isDescSort,
-        seIsDescSort,
+        isPriceSort,
+        setIsPriceSort,
+        categorySort,
+        setCategorySort,
         sortedItems
     }
 

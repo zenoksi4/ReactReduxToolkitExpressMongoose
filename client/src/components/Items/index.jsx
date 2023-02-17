@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useSortItems } from "../../hooks/useSortItems";
@@ -15,13 +15,17 @@ import styles from './styles.module.css'
 const Items = () => {
     const dispatch = useDispatch();
     const { items, isLoading } = useSelector((state) => state.items)
-    const { isDescSort, seIsDescSort, sortedItems } = useSortItems(items || [])
-
+    const { 
+            isPriceSort,
+            setIsPriceSort,
+            categorySort,
+            setCategorySort,
+            sortedItems
+        } = useSortItems(items || [])
 
     useEffect(() => {
         dispatch(getItems())
     }, [dispatch]);
-
 
     if (isLoading) {
         return <Loader />
@@ -29,25 +33,35 @@ const Items = () => {
 
     return (
         <div>
-            <div className={ styles.sort }>
-                <ContentWrapper className={ styles.itemsHeader }>
+            <ContentWrapper className={ styles.itemsHeader }>
+                <div className={ styles.sort }>
 
                     <Button 
                     className={ styles.sortBtn }
-                    onClick={() => seIsDescSort(!isDescSort)}
+                    onClick={() => setIsPriceSort(!isPriceSort)}
                     >
-                        Sort by price: { `${isDescSort ? 'High to Low' : 'Low to High'}` }
+                        Sort by price: { `${isPriceSort ? 'High to Low' : 'Low to High'}` }
                     </Button>
+                    <select onClick={ (e) => {setCategorySort(e.target.value)} } className={ styles.category }>
+                        <option  value="">Sort by category</option>
+                        {
+                           items && items.map(item => 
+                           <option 
+                            value={ item.category }
+                            >
+                                { item.category }
+                            </option>)
+                        }
+                    </select>
 
-                    <Link 
+                </div>
+                <Link 
                         to={ paths.createItem } 
                         className={ styles.createItemBtn }
                     >
                         Add item
                     </Link>
-
-                </ContentWrapper>
-            </div>
+            </ContentWrapper>
 
             <ContentWrapper className={ styles.itemsGrid }>
                 { sortedItems && sortedItems.map(item => <Item key={item._id} {...item}/>)}
