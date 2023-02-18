@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getItems, createItem, getItemById } = require('../controllers/itemsController')
+const { getItems, createItem, getItemById, deleteItemById } = require('../controllers/itemsController')
 const path = require('path');
 const multer = require('multer');
 
@@ -27,6 +27,10 @@ router.get('/:id', getItemById)
 // route POST /api/items
 // create item
 router.post('/', upload.single('itemImage'), createItem)
+
+// route DELETE /api/items/:id
+// delete item
+router.delete('/:id', deleteItemById)
 
 
 module.exports = router;
