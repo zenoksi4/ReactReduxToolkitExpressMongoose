@@ -21,12 +21,12 @@ const LoginAdmin = () => {
     if(loggedIn) {
         navigate(`${paths.createItem}`, { replace: true });
     }
-  }, [loggedIn]);
+  }, [loggedIn, navigate]);
 
   const handleLogin = (event) => {
     event.preventDefault();
 
-    if (username === 'admin' && password === 'admin') {
+    if (username.replace(/\s/g, "") === 'admin' && password === 'admin') {
         localStorage.setItem('loggedIn', 'true');
         window.location.reload();
     } else {

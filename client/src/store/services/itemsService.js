@@ -18,10 +18,17 @@ const createItem = async (itemData) => {
     return item.data;
 }
 
+const deleteItem = async (id) => {
+    const item = await axios.delete(`/api/items/${id}`);
+
+    return item.data;
+}
+
 const itemsService = {
     getItems,
     getItem,
-    createItem
+    createItem,
+    deleteItem
 }
 
 export default itemsService;

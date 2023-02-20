@@ -18,7 +18,6 @@ const Items = () => {
     const { 
             isPriceSort,
             setIsPriceSort,
-            categorySort,
             setCategorySort,
             sortedItems
         } = useSortItems(items || [])
@@ -49,7 +48,7 @@ const Items = () => {
                            <option 
                             value={ item.category }
                             >
-                                { item.category }
+                                { item.category.length > 20 ? item.category.slice(0, 20) + '...': item.category }
                             </option>)
                         }
                     </select>

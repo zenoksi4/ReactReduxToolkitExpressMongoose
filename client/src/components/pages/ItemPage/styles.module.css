@@ -54,6 +54,7 @@
     object-fit: cover;
     border-radius: 20px;
     max-width: 600px;
+    min-width: 350px;
 
 }
 
@@ -62,6 +63,18 @@
     justify-content: space-between;
     padding-top: 20px;
 
+}
+
+.deleteBtn {
+    border: 2px solid #cf1b1b;
+    background: rgba(0, 0, 0, 0);
+    color: #cf1b1b;
+    transition: .1s;
+}
+
+.deleteBtn:hover {
+    background: #e91d1d;
+    color: #ffffff;
 }
 
 .nav {
@@ -76,6 +89,16 @@
 }
 
 
+.contentDeleteBtn {
+    transform: translateX(-20px);
+    opacity: 0;
+    animation-duration: 2s;
+    animation-delay: 0.5s;
+    animation-name: fadeInAnimationLeft;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
 .descContent {
     transform: translateX(-20px);
     opacity: 0;
@@ -85,6 +108,10 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    hyphens: manual;
 }
 
 

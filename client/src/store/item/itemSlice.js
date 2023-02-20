@@ -18,6 +18,14 @@ export const createItem = createAsyncThunk('CREATE_ITEM', async (itemData, thunk
     }
 });
 
+export const deleteItem = createAsyncThunk('DELETE_ITEM', async (id, thunkAPI) => {
+    try {
+        return await itemsService.deleteItem(id)
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data)
+    }
+});
+
 const itemSlice = createSlice({
     name: 'item',
 
@@ -62,6 +70,20 @@ const itemSlice = createSlice({
             state.isLoading = false;
             state.isError = true;
             state.errors = action.payload;
+        });
+
+        builder.addCase(deleteItem.pending, (state) => {
+            state.isLoading = true
+        });
+        builder.addCase(deleteItem.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.item = action.payload[0];
+        });
+        builder.addCase(deleteItem.rejected, (state, action) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.message = action.payload.message;
+            state.item = null;
         });
     }
 });

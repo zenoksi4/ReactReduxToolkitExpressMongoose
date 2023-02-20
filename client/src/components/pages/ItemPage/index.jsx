@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getItem } from "../../../store/item/itemSlice";
+import { paths } from "../../../paths";
+import { deleteItem, getItem } from "../../../store/item/itemSlice";
+import ReactDOM from 'react-dom';
 
 import Button from "../../Button";
 import ContentWrapper from "../../ContentWrapper";
-import Header from "../../Header";
 import Loader from "../../Loader";
+import ModalConfirm from "../../ModalConfirm";
 
 import styles from './styles.module.css'
 
@@ -15,6 +17,13 @@ const ItemPage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const { item, isLoading } = useSelector(state => state.item)
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+      const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+      setLoggedIn(isLoggedIn);
+    }, [loggedIn]);
 
     useEffect(() => {
         dispatch(getItem(id));
@@ -61,6 +70,37 @@ const ItemPage = () => {
                 </div>
 
             </ContentWrapper>
+
+            {
+                loggedIn &&   
+                    <ContentWrapper className={ styles.contentDeleteBtn }>
+
+                        <Button 
+                        className={ styles.deleteBtn } 
+                        onClick={ () => setShowModal(true)}
+                        >
+                            DELETE ITEM
+                        </Button>
+
+                        {
+                            ReactDOM.createPortal(                            
+                                <ModalConfirm 
+                                title="Delete item?"
+                                onConfirm={ () => { 
+                                    dispatch(deleteItem(id));
+                                    navigate(`${paths.home}`, { replace: true });
+                                 } }
+                                onCancel={ () => setShowModal(false) }
+                                showModal={ showModal }
+                                />,
+                                document.getElementById('modal')
+                                )
+
+                        }
+
+                    </ContentWrapper>
+            }
+
         </>
     )
 }

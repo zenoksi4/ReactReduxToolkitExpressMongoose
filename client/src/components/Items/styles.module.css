@@ -14,10 +14,9 @@
 
 .sort {
     height: 80px;
-
-
     display: flex;
     align-items: center;
+    
 }
 
 .category {
@@ -30,7 +29,12 @@
     font-weight: bold;
     color: #ffffff;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 25vh;
 }
+
+
 
 .category:hover {
     opacity: 0.9;

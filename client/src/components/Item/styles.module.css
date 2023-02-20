@@ -39,7 +39,8 @@
     place-items: center;
     border-radius: 50%;
     z-index: 2;
-
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .categoryWrap{
@@ -57,6 +58,8 @@
     background: rgba(50, 61, 109, 0.5);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .title {
@@ -70,6 +73,8 @@
     font-size: 20px;
     font-weight: bold;
     color: #2FB5FC;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
