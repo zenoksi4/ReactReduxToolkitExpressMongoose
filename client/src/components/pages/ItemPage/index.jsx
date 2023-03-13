@@ -20,6 +20,11 @@ const ItemPage = () => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
+    const handleDelete = async () => {
+        await dispatch(deleteItem(id));
+        navigate(`${paths.home}`, { replace: true });
+      };
+
     useEffect(() => {
       const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
       setLoggedIn(isLoggedIn);
@@ -86,10 +91,9 @@ const ItemPage = () => {
                             ReactDOM.createPortal(                            
                                 <ModalConfirm 
                                 title="Delete item?"
-                                onConfirm={ () => { 
-                                    dispatch(deleteItem(id));
-                                    navigate(`${paths.home}`, { replace: true });
-                                 } }
+                                onConfirm={ 
+                                    handleDelete
+                                }
                                 onCancel={ () => setShowModal(false) }
                                 showModal={ showModal }
                                 />,

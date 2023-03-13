@@ -21,6 +21,7 @@ export const createItem = createAsyncThunk('CREATE_ITEM', async (itemData, thunk
 export const deleteItem = createAsyncThunk('DELETE_ITEM', async (id, thunkAPI) => {
     try {
         return await itemsService.deleteItem(id)
+        
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data)
     }

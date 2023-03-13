@@ -1,25 +1,26 @@
 import axios from 'axios'
 
+const proxy = 'http://localhost:8000'
 const getItems = async () => {
-    const items = await axios.get('/api/items');
+    const items = await axios.get(`${proxy}/api/items`);
 
     return items.data;
 }
 
 const getItem = async (id) => {
-    const item = await axios.get(`/api/items/${id}`);
+    const item = await axios.get(`${proxy}/api/items/${id}`);
 
     return item.data;
 }
 
 const createItem = async (itemData) => {
-    const item = await axios.post(`/api/items`, itemData);
+    const item = await axios.post(`${proxy}/api/items`, itemData);
 
     return item.data;
 }
 
 const deleteItem = async (id) => {
-    const item = await axios.delete(`/api/items/${id}`);
+    const item = await axios.delete(`${proxy}/api/items/${id}`);
 
     return item.data;
 }

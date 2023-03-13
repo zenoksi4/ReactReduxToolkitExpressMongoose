@@ -29,17 +29,26 @@ const CreateItemPage = () => {
     const [ price, setPrice ] = useState('');
     const [ category, setCategory ] = useState('');
     const [ exterior, setExterior ] = useState('');
-    const [ itemImage, setItemImage ] = useState(null);
+    const [ itemImage, setItemImage ] = useState('');
+
+    const handleImage = (e) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+            setItemImage(reader.result);
+        };
+      };
 
     const handleCreateItem = useCallback(() => {
-        const formData = new FormData();
-        formData.append("name", name);
-        formData.append("price", price);
-        formData.append("category", category);
-        formData.append("exterior", exterior);
-        formData.append("itemImage", itemImage);
+        const Data = {
+            name: name,
+            price: price,
+            category: category,
+            exterior: exterior,
+            itemImage: itemImage
+        }
 
-        dispatch(createItem(formData)).then(res => {
+        dispatch(createItem(Data)).then(res => {
             if(!res.error) {
                 navigate(`${paths.item}/${res.payload._id}`, { replace: true });
             }
@@ -94,7 +103,7 @@ const CreateItemPage = () => {
                     type='file'
                     placeholder='Item image'
                     error={ errors && errors.itemImage && errors.itemImage.message }
-                    onChange={(e) => setItemImage(e.target.files[0])}
+                    onChange={(e) => handleImage(e)}
                 />
 
             <ContentWrapper className={ styles.buttons }>

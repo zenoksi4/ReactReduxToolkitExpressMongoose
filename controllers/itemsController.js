@@ -1,6 +1,5 @@
 const Item = require('../models/itemModel');
-const path = require('path');
-const fs = require('fs');
+
 
 const getItems = async (req, res) => {
     try {
@@ -16,7 +15,7 @@ const createItem = async (req, res) => {
     const errors = {};
 
     if (!req.body.name) {
-        errors.name = {message: "Please enter a name"}
+        errors.name = {message: `Please enter a name ${req.body.name}`}
     }
 
     if (!req.body.price || req.body.price < 0) {
@@ -31,7 +30,7 @@ const createItem = async (req, res) => {
         errors.category = {message: "Please enter a category"}
     }
 
-    if (!req.file) {
+    if (!req.body.itemImage) {
         errors.itemImage = {message: "Please enter a photo"}
     }
 
@@ -40,14 +39,14 @@ const createItem = async (req, res) => {
     }
 
     try {
-        const { name, price, exterior, category} = req.body;
+        const { name, price, exterior, category, itemImage} = req.body;
 
         const item = await Item.create({
             name, 
             price, 
             exterior, 
             category, 
-            itemImage: `http://localhost:${process.env.PORT}/static/${req.file.filename}`
+            itemImage
         });
         
         res.status(201).json(item);
@@ -71,22 +70,14 @@ const deleteItemById = async (req, res) => {
     try {
         const id = req.params.id;
         const deleteItem = await Item.findByIdAndDelete(id);
-        ImageName = deleteItem.itemImage.split('/').pop();
-        const filePath = path.join(__dirname, '../assets', ImageName);
 
-    if (!deleteItem) {  
-        return res.status(404).send('Item not found');
-        }
 
-    fs.unlink(filePath, (err) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        console.log(`File ${filePath} has been removed`);
-        });
+        if (!deleteItem) {  
+            return res.status(404).send('Item not found');
+            }
 
-    res.send(deleteItem);
+
+        res.send(deleteItem);
 
     } catch(error) {
         res.status(500).send(`Failed to delete item: ${error}`);
