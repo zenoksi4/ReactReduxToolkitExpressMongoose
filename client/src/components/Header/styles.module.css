@@ -40,6 +40,45 @@
     text-transform: capitalize;
 }
 
+@media screen and (max-width: 992px) {
+
+    .title{
+        font-size: 40px;
+    }
+    .content {
+        padding: 40px 15px 0px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 683px) {
+    
+    .content {
+        padding: 30px 15px 0px;
+        text-align: center;
+    }
+    .desc {
+        padding: 10px;
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .content {
+        padding: 50px 15px 0px;
+
+    }
+
+    .title{
+        padding: 0;
+        font-size: 25px;
+    }
+    .desc {
+        padding: 0;
+        font-size: 18px;
+        text-align: center;
+    }
+}
 
 @keyframes fadeInAnimation {
     from {
@@ -59,6 +98,38 @@
     bottom: -200px;     
 }
 
+@media screen and (max-width: 992px) {
+    .wave {
+        bottom: -130px;
+    }
+}
+
+@media screen and (max-width: 822px) {
+    .wave {
+        bottom: -100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wave {
+        width: 150%;
+        bottom: -150px;
+    }
+}
+
+@media screen and (max-width: 698px) {
+    .wave {
+        width: 180%;
+        bottom: -160px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .wave {
+        width: 200%;
+        bottom: -90px;
+    }
+}
 
 
 

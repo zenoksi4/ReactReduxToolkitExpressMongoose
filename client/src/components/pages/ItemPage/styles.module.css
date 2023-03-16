@@ -1,9 +1,7 @@
 .item {
-    padding: 10p 0;
     display: flex;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
-    align-items: top;
     min-height: 40vh;
 }
 
@@ -58,6 +56,48 @@
 
 }
 
+.deleteBtn {
+    border: 2px solid #cf1b1b;
+    background: rgba(0, 0, 0, 0);
+    color: #cf1b1b;
+    transition: .1s;
+}
+
+@media screen and (max-width: 792px) {
+    .item{
+        flex-direction: column-reverse;
+    }
+    .descContent{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .descContent > * {
+        margin: 0;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    .descContent {
+        flex-direction: column;
+
+    }
+    .item{
+        margin-bottom: 20px;
+    }
+
+    .image {
+        min-width: 250px;
+    }
+
+    .contentDeleteBtn{
+        margin-bottom: 20px;
+    }
+
+}
 .nav{
     display: flex;
     justify-content: space-between;
@@ -65,12 +105,7 @@
 
 }
 
-.deleteBtn {
-    border: 2px solid #cf1b1b;
-    background: rgba(0, 0, 0, 0);
-    color: #cf1b1b;
-    transition: .1s;
-}
+
 
 .deleteBtn:hover {
     background: #e91d1d;
