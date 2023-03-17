@@ -8,7 +8,7 @@ export const useSortItems = (items = []) => {
         const sortableItems = [...items];
 
         const filteredItems = sortableItems.filter(
-            (item) => categorySort === "" || item.category === categorySort
+            (item) => categorySort === "" || item.category.trim().toLowerCase() === categorySort.trim().toLowerCase()
             
           );
 

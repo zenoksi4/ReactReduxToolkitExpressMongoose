@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const proxy = 'http://localhost:8000'
+const proxy = 'https://market-cs.onrender.com'
 const getItems = async () => {
     const items = await axios.get(`${proxy}/api/items`);
 

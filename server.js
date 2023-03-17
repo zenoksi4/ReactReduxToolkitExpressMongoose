@@ -17,7 +17,7 @@ app.use(bodyParser.text({ limit: '1mb' }));
 
 app.use('/api/items', require('./routes/itemsRoute'))
 
-mongoose.connect("mongodb://localhost:27017")
+mongoose.connect(`${process.env.MONGODB_URL}`)
     .then(() => {
         app.listen(port, () => {
             console.log(`App listening on port: ${port}`)

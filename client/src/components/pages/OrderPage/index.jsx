@@ -18,7 +18,7 @@ const OrderPage = () => {
                 onClick={() => navigate('/')}
                 containerClassName={ styles.button }
             >
-                Main page
+                Main
             </Button>
         </ContentWrapper>
     )

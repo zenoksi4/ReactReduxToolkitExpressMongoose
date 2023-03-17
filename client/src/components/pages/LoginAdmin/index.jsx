@@ -26,7 +26,7 @@ const LoginAdmin = () => {
   const handleLogin = (event) => {
     event.preventDefault();
 
-    if (username.replace(/\s/g, "") === 'admin' && password === 'admin') {
+    if (username.replace(/\s/g, "").toLocaleLowerCase() === 'admin' && password === 'admin') {
         localStorage.setItem('loggedIn', 'true');
         window.location.reload();
     } else {

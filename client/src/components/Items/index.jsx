@@ -41,15 +41,23 @@ const Items = () => {
                     >
                         Sort by price: { `${isPriceSort ? 'High to Low' : 'Low to High'}` }
                     </Button>
-                    <select onClick={ (e) => {setCategorySort(e.target.value)} } className={ styles.category }>
+                    <select onChange={ (e) => {setCategorySort(e.target.value)} } className={ styles.category }>
                         <option  value="">Sort by category</option>
                         {
-                           items && items.map(item => 
-                           <option 
-                            value={ item.category }
-                            >
-                                { item.category.length > 20 ? item.category.slice(0, 20) + '...': item.category }
-                            </option>)
+                           items && items      
+                            .filter(
+                                (item, index, self) =>
+                                    index === self.findIndex((t) => 
+                                        t.category.trim().toLowerCase() === item.category.trim().toLowerCase()
+                                    )
+                                )
+                            .map(item => 
+                                
+                                <option 
+                                    value={ item.category }
+                                >
+                                    { item.category.length > 20 ? item.category.slice(0, 20) + '...': item.category }
+                                </option>)
                         }
                     </select>
 
